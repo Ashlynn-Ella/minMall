@@ -8,6 +8,7 @@ import OrderConfirm from './pages/orderConfirm'
 import Cart from './pages/cart'
 import OrderList from './pages/orderList'
 import Product from './pages/product'
+import Login from './pages/login'
 
 
 var router = new vueRouter({
@@ -29,9 +30,9 @@ var router = new vueRouter({
                 { path: 'confirm', component: OrderConfirm },
                 { path: 'list', component: OrderList },
             ]
-        },
-        
-        { path:'/cart', component: Cart }
+        },       
+        { path:'/cart', component: Cart },
+        { path:'/login', component: Login }
     ]
 })
 
