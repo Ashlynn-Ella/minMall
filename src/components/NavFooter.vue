@@ -1,5 +1,4 @@
 <template>
-  <div>
     <div class="footer">     
       <div class="footer-nav">
         <div class="footer-logo">
@@ -19,12 +18,11 @@
 					<span>|</span>
 					<a href="javascript:;" target="_blank">特殊服务</a>
         </div> 
-				<div class="copyright">
-					Copyright ©2019 <span class="lingk">mi.futurefe.com</span>  All Rights Reserved.
-				</div>
+		<div class="copyright">
+			Copyright ©2019 <span class="lingk">mi.futurefe.com</span>  All Rights Reserved.
+		</div>
       </div>
     </div>
-  </div>
 </template>
 
 <script>

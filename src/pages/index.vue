@@ -138,11 +138,11 @@ export default {
         }
       },
       swiperList: [
-        { id: 42, img: "/imgs/slider/slide-1.jpg" },
+        { id: 35, img: "/imgs/slider/slide-1.jpg" },
         { id: 45, img: "/imgs/slider/slide-2.jpg" },
         { id: 46, img: "/imgs/slider/slide-3.jpg" },
-        { id: 42, img: "/imgs/slider/slide-4.jpg" },
-        { id: 42, img: "/imgs/slider/slide-5.jpg" }
+        { id: 35, img: "/imgs/slider/slide-4.jpg" },
+        { id: 36, img: "/imgs/slider/slide-5.jpg" }
       ],
       adsList:[
         { id: 35, img: "/imgs/ads/ads-1.png" },
@@ -326,7 +326,6 @@ export default {
         width: 1000px;
         @include flex();
         flex-wrap: wrap;
-        // background-color: red;
         li{
           box-sizing: border-box;
           width: 236px;

@@ -10,12 +10,12 @@
             <a href="javascript:;">协议规则</a>
           </div>
           <div class="topbar-user">
-            <a href="/#/login" v-if="userName">{{ userName }}</a>
-            <a href="/#/login" v-if="!userName">登录</a>
-            <a href="/#/order" v-if="userName">我的订单</a>
+            <a href="/#/login" v-if="username">{{ username }}</a>
+            <a href="/#/login" v-if="!username">登录</a>
+            <a href="/#/order" v-if="username">我的订单</a>
             <a href="/#/cart" class="my-cart">
               <span class="icon-cart"></span>
-              购物车(0)
+              购物车({{cartCount}})
             </a>
           </div>
         </div>
@@ -154,12 +154,19 @@
 export default {
   data() {
     return {
-      userName:'',
       productList:[]
     }
   },
+  computed:{
+    username(){
+      return this.$store.state.username
+    },
+    cartCount(){
+      return this.$store.state.cartCount
+    }
+  },
   mounted() {
-    this.getProductList()
+    this.getProductList();
   },
   methods: {
     getProductList() {
@@ -311,13 +318,11 @@ export default {
       }
       .header-search {
         @include flex();
-        height: 50px;
         border: 1px solid #e0e0e0;
         input {
-          box-sizing: border-box;
           width: 264px;
           height: 50px;
-          border: 0;
+          border: none;
           padding-left: 12px;
         }
         .icon-search {

@@ -2,8 +2,10 @@ import Vue from 'vue'
 import axios from 'axios'
 import VueAxios from 'vue-axios'
 import vueRouter from 'vue-router'
+import vueCookie from 'vue-cookie'
 import router from './router.js'
 import App from './App.vue'
+import store from './store'
 import VueLazyload from 'vue-lazyload'
 // import env from './env'
 
@@ -15,9 +17,12 @@ axios.interceptors.response.use(function (response) {
   if(res.status === 0){
     return res.data
   } else if (res.status === 10){
-    window.location.href = '/#/login'
+    if(location.hash !== '#/index'){
+      window.location.href = '/#/login'
+    } 
   } else {
-    alert('res.msg')
+    alert(res.msg)
+    return Promise.reject() //抛出异常
   }
 })
 //过滤器
@@ -27,6 +32,7 @@ Vue.filter('currency',function(vul) {
 })
 
 Vue.use(vueRouter)
+Vue.use(vueCookie)
 Vue.use(VueAxios,axios)
 Vue.use(VueLazyload,{
   loading: '/imgs/loading-svg/loading-bubbles.svg'
@@ -34,6 +40,7 @@ Vue.use(VueLazyload,{
 Vue.config.productionTip = false
 
 new Vue({
+  store,
   router,
   render: h => h(App)
 }).$mount('#app')
