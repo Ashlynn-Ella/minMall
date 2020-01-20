@@ -7,6 +7,7 @@ import Order from './pages/order'
 import OrderConfirm from './pages/orderConfirm'
 import Cart from './pages/cart'
 import OrderList from './pages/orderList'
+import OrderPay from './pages/orderPay'
 import Product from './pages/product'
 import Login from './pages/login'
 
@@ -18,17 +19,19 @@ var router = new vueRouter({
             path: '/',
             component: Home,
             children: [
-                { path: 'index', component: Index },
-                { path:'/product/:id', component: Product },
-                { path: 'detail', component: Detail }
+                { path: 'index', name:'index', component: Index },
+                { path:'/products/:id', component: Product },
+                { path: 'detail/:id', component: Detail }
             ]
         },
         { 
-            path: '/order', 
+            path: '/order',
+            name: 'order', 
             component: Order,
             children:[
                 { path: 'confirm', component: OrderConfirm },
                 { path: 'list', component: OrderList },
+                { path: 'pay', component: OrderPay }
             ]
         },       
         { path:'/cart', component: Cart },

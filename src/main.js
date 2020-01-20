@@ -7,6 +7,8 @@ import router from './router.js'
 import App from './App.vue'
 import store from './store'
 import VueLazyload from 'vue-lazyload'
+import { Message } from 'element-ui'
+import 'element-ui/lib/theme-chalk/index.css' 
 // import env from './env'
 
 axios.defaults.baseURL = '/api'
@@ -19,9 +21,10 @@ axios.interceptors.response.use(function (response) {
   } else if (res.status === 10){
     if(location.hash !== '#/index'){
       window.location.href = '/#/login'
+      return Promise.reject()
     } 
   } else {
-    alert(res.msg)
+    this.$message.error(res.msg)
     return Promise.reject() //抛出异常
   }
 })
@@ -31,6 +34,7 @@ Vue.filter('currency',function(vul) {
       return `￥${vul.toFixed(2)}元`
 })
 
+Vue.prototype.$message = Message
 Vue.use(vueRouter)
 Vue.use(vueCookie)
 Vue.use(VueAxios,axios)

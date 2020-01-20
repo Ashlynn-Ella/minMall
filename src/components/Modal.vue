@@ -13,10 +13,10 @@
 
                 <div class="modal-footer">
                         <a herf="javascript:;" class="btn" v-if="btnType==1" @click="$emit('submit')">{{sureText}}</a>
-                        <a herf="javascript:;" class="btn btn-default" v-if="btnType==2" @click="$emit('cancel')">取消</a>
+                        <a herf="javascript:;" class="btn btn-default" v-if="btnType==2" @click="$emit('cancel')">{{cancelText}}</a>
                     <div class="btn-group" v-if="btnType==3">
-                        <a herf="javascript:;" class="btn" @click="$emit('submit')">确定</a>
-                        <a herf="javascript:;" class="btn btn-default" @click="$emit('cancel')">取消</a>
+                        <a herf="javascript:;" class="btn" @click="$emit('submit')">{{sureText}}</a>
+                        <a herf="javascript:;" class="btn btn-default" @click="$emit('cancel')">{{cancelText}}</a>
                     </div>
                 </div>
             </div>
@@ -50,5 +50,5 @@ export default {
 
 <style lang="scss">
 @import '../assets/scss/mixin.scss';
-@import '../assets/scss/modal.scss'
+@import '../assets/scss/modal.scss';
 </style>

@@ -12,21 +12,24 @@ export default {
      
     }
   },
-  mounted() {
+  created() {
     // this.data = Storage.getItem('mall')
     // storage.setItem('cars',{name:'zs',type:1},'user')
     // storage.clear('a','user')
-     this.getUser() 
-     this.getCarts() 
+    if(this.$cookie.get('userId')){
+      this.getUser() 
+      this.getCarts() 
+    }
+     
   },
   methods:{
     getUser() {
-      this.axios.get('/user').then((res)=>{
+      this.axios.get('/user').then((res={})=>{
         this.$store.dispatch('saveUserName', res.username)
       })
     },
     getCarts() {
-      this.axios.get('/carts/products/sum').then((res)=>{
+      this.axios.get('/carts/products/sum').then((res=0)=>{
         this.$store.dispatch('getCartCount', res)
       })
     }

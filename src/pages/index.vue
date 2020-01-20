@@ -5,7 +5,7 @@
         <swiper :options="swiperOption">
           <!-- slides -->
           <swiper-slide v-for="item in swiperList" :key="item.id">
-            <a :href="'/#/products' + item.id">
+            <a :href="'/#/products/' + item.id">
               <img :src="item.img" />
             </a>
           </swiper-slide>
@@ -175,18 +175,19 @@ export default {
           }
         });
     },
-    addCart() { 
-      this.modalShow = true 
-      // this.axios.post('/carts',{
-      //   productId:id,
-      //   selected: true
-      // }).then(() => {
-      //   this.modalShow = true
-      // })
+    addCart(id) {  
+      this.axios.post('/carts',{
+        productId:id,
+        selected: true
+      }).then((res={cartProductVoList:0}) => {
+        this.modalShow = true
+        this.$store.dispatch('getCartCount', res.cartTotalQuantity)
+      })
     },
     goToCart() {
       this.$router.push('/cart')
     }
+
   }
 };
 </script>

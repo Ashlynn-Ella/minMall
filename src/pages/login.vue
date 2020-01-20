@@ -70,23 +70,26 @@ export default {
       userId:''
     }
   },
-  mounted(){
-    
-  },
   methods:{
     login(){
       if(!this.username || !this.password){
-        alert('请输入账号或者密码')
+        this.$massage.warning('请输入账号或者密码')
       }
       let { username,password } = this
       this.axios.post('/user/login',{
         username,password
       }).then((res)=>{
         this.$cookie.set('userId', res.id, { expires: '1M' });
-        this.store.dispatch('saveUserName', res.username)
-        this.$router.push('/index/')
+        this.$store.dispatch('saveUserName', res.username)
+        this.$router.push({
+          name: 'index',
+          params:{
+            from:'login'
+          }
+        })
       })
     }
+
   }
 };
 </script>
