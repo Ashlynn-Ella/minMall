@@ -40,6 +40,7 @@ node-sass sass-loader
 vue-awesome-swiper //轮播图插件
 vue-axios
 vue-cookie
+qrcode //二维码生成插件
 ```
 
 ## 3、封装路由

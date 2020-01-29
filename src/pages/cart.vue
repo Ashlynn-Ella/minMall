@@ -2,7 +2,7 @@
     <div class="cart">
         <OrderHeader title="我的购物车">
         <template v-slot:cart-point>
-            温馨提示：产品是否购买成功，以最终下单为准哦，请尽快结算    
+            <span>温馨提示：产品是否购买成功，以最终下单为准哦，请尽快结算</span>    
         </template>
         </OrderHeader>
         <div class="cart-list">

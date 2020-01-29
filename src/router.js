@@ -10,6 +10,7 @@ import OrderList from './pages/orderList'
 import OrderPay from './pages/orderPay'
 import Product from './pages/product'
 import Login from './pages/login'
+import AliOrder from './pages/aliOrder'
 
 
 var router = new vueRouter({
@@ -31,7 +32,8 @@ var router = new vueRouter({
             children:[
                 { path: 'confirm', component: OrderConfirm },
                 { path: 'list', component: OrderList },
-                { path: 'pay', component: OrderPay }
+                { path: 'pay', component: OrderPay },
+                { path: 'alipay', component: AliOrder }
             ]
         },       
         { path:'/cart', component: Cart },

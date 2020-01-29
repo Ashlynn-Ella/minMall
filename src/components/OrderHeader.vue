@@ -6,7 +6,7 @@
                     <a href="/#/index"></a>
                 </div>
                 <div class="order-title">
-                    <h2>{{title}}<span><slot name="cart-point"></slot></span></h2>
+                    <h2>{{title}}<slot name="cart-point"></slot></h2>
                 </div>
                 
                 <div class="user">

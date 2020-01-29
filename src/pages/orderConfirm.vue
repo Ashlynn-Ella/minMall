@@ -1,5 +1,10 @@
 <template>
-    <div class="confirm">       
+    <div class="confirm">
+      <order-header title="支付订单">
+        <template v-slot:cart-point>
+          <span>请谨防钓鱼链接或诈骗电话，了解更多></span>    
+        </template>       
+      </order-header>       
         <div class="confirm-box">
             <div class="container">
                 <div class="addr clearfix">                   
@@ -132,9 +137,11 @@
 
 <script>
 import Modal from './../components/Modal'
+import OrderHeader from '../components/OrderHeader'
 export default {
   components:{
-      Modal
+      Modal,
+      OrderHeader
   },
   data(){
     return{

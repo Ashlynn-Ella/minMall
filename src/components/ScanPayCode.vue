@@ -5,7 +5,7 @@
       <div class="img-scan"></div>
       <div class="img-pay">
         <div class="title">微信支付<em @click="$emit('close')"></em></div>
-        <div class="qrcode"><img src="/imgs/pay/icon-qrcode.png"></div>
+        <div class="qrcode"><img :src="payImg"></div>
         <div class="tip">
           <p>请使用<span class="theme-color">微信</span>扫一扫</p>
           <p>二维码完成支付</p>
@@ -18,7 +18,8 @@
   export default{
     name:'scan-pay-code',
     props:{
-      showScan:Boolean
+      showScan:Boolean,
+      payImg:String
     }
   }
 </script>
